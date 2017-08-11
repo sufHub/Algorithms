@@ -1,0 +1,51 @@
+
+public class K_Largest_Nos {
+	
+	public static void main(String[] args) {
+		
+		int[] test = {7,232,23,4,12,78,45};
+		int k = 2;
+		int[] temp = new int[k];
+
+		for(int i=0;i<k;i++){
+			temp[i] = test[i];
+		}
+		
+		int min = findMinmum(temp);
+		
+		for(int i=k; i< test.length; i++){
+			if(test[i] > min){
+				removeFromTemp(temp, min, test[i]);
+				min = findMinmum(temp);
+			}			
+		}
+
+		System.out.println("min " + min);
+		
+		for(int i: temp){
+			System.out.println(i);
+		}
+		
+	}
+
+	private static int findMinmum(int[] temp) {
+		int min = temp[0];
+		for (int i = 1; i < temp.length; i++) {
+			if(min > temp[i]){
+				min = temp[i];
+			}
+		}
+		return min;
+	}
+
+	private static void removeFromTemp(int[] temp, int min, int tobeAdded) {
+		
+		for (int i = 0; i < temp.length; i++) {
+			if(temp[i] == min){
+				temp[i] = tobeAdded; 
+			}
+		}
+		
+	}
+
+}
