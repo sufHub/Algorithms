@@ -1,0 +1,29 @@
+// Check if Parenthesis are well formed in a String
+
+package strings;
+
+public class parenthesis_well_formed {
+	
+	public static void main(String[] args) {
+		
+		String test = "{}{}{";
+		
+		int openCount = 0;
+		int closeCount = 0;
+		for(Character ch : test.toCharArray()){
+			if(ch == '{'){
+				openCount++;
+			}else if(ch == '}'){
+				closeCount++;
+			}
+		}
+		
+		if(openCount == closeCount){
+			System.out.println("Valid String");
+		}else {
+			System.out.println("Invalid String, Open : "+openCount +", Close :"+closeCount);
+		}
+		
+	}
+
+}
